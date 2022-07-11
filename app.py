@@ -14,11 +14,16 @@ def home():
     return render_template('index.html')
 
 ####################################################
-
-# api home
-@app.route('/api')
-def api():
-    return 'Hey! You should not be here!'
+    
+# API: contact us
+@app.route('/api/contact', methods = ['GET'])
+def contact_us():
+    return 'CONTACT US'
+    
+# API: place an order
+@app.route('/api/order', methods = ['POST'])
+def place_order():
+    return 'PLACE ORDER'
 
 ####################################################
     
