@@ -133,4 +133,4 @@ dmypy.json
 .RHistory
 
 # Passwords for email system
-credentials.json
+email_credentials.json

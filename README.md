@@ -8,6 +8,10 @@ Website for Mom's Business
 * admin page with password for us to confirm orders and view messages
 * need business email
 
+### Notes:
+
+* remember that I needed to add 2-step verification and app password to notfiication gmail acccount to work
+* port number also needs to stay fixed for ssl
 
 ### To Run In Dev:
 

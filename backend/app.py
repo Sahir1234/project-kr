@@ -1,5 +1,8 @@
+
 from flask import Flask
 from flask import jsonify
+
+from email_module.email_client import EmailClient
 
 app = Flask(__name__)
     
@@ -9,8 +12,9 @@ def contact_us():
     return 'CONTACT US'
     
 # place an order
-@app.route('/api/order', methods = ['POST'])
+@app.route('/api/order', methods = ['GET'])
 def place_order():
+    # EmailClient.send()
     return 'PLACE ORDER'
     
 # reroute invalid URLs
