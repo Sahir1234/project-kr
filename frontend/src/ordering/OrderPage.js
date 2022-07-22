@@ -1,14 +1,15 @@
 
 import React from 'react';
 import OrderForm from './OrderForm.js'
+import { Container } from 'react-bootstrap';
 
 class OrderPage extends React.Component {
     
     render() {
         return (
-            <div>
+            <Container>
                 <OrderForm />
-            </div>
+            </Container>
         );
     }
 }

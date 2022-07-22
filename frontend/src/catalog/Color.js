@@ -1,10 +1,13 @@
 
 import React from "react";
+import { Container, Row, Col } from 'react-bootstrap';
 
 class Color extends React.Component {
     render() {
         return (
-            <p>color</p>
+            <Container>
+                color
+            </Container>
         );
     }
 }

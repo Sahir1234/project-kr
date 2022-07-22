@@ -1,7 +1,7 @@
 
 import './App.css';
 import Header from './common/Header.js';
-import Catalog from './catalog/Catalog';
+import CatalogPage from './catalog/CatalogPage';
 import OrderPage from './ordering/OrderPage.js';
 import Footer from './common/Footer.js';
 
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Catalog />} />
+          <Route path="/" element={<CatalogPage />} />
           <Route path="/order" element={<OrderPage />} />
         </Routes>
         <Footer />

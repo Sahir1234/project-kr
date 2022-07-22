@@ -1,35 +1,22 @@
 
 import React from 'react';
-import './Header.css';
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
-
-
-function CustomLink({ to, children, ...props }) {
-  const resolvedPath = useResolvedPath(to)
-  const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-
-  return (
-    <li className={isActive ? "active" : ""}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
-    </li>
-  )
-}
-
+import { Nav, Navbar, Container } from 'react-bootstrap';
 
 
 class Header extends React.Component {
   render() {
-    return (<nav className="nav">
-      <div className="site-title">
-        Site Name
-      </div>
-      <ul>
-        <CustomLink to="/">View Products</CustomLink>
-        <CustomLink to="/order">Place an Order</CustomLink>
-      </ul>
-    </nav>
+    return (<Navbar bg="dark" expand="dark">
+    <Container>
+      <Navbar.Brand href="/">Site Name</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/order">Link</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
     );
   }
 }
