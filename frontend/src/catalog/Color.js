@@ -1,9 +1,12 @@
 
+import React from "react";
 
-function Color() {
-    return (
-        <p>color</p>
-    )
+class Color extends React.Component {
+    render() {
+        return (
+            <p>color</p>
+        );
+    }
 }
 
 export default Color;

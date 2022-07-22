@@ -1,8 +1,11 @@
+import React from "react";
 
-function Size() {
-    return (
-        <p>size</p>
-    )
+class Size extends React.Component {
+    render() {
+        return (
+            <p>size</p>
+        );
+    }
 }
 
 export default Size;

@@ -1,9 +1,12 @@
 
+import React from "react";
 
-function Finish() {
-    return (
-        <p>Finish</p>
-    )
+class Finish extends React.Component {
+    render() {
+        return (
+            <p>Finish</p>
+        );
+    }
 }
 
 export default Finish;

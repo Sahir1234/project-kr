@@ -2,7 +2,7 @@
 import './App.css';
 import Header from './common/Header.js';
 import Catalog from './catalog/Catalog';
-import Order from './ordering/Order.js';
+import OrderPage from './ordering/OrderPage.js';
 import Footer from './common/Footer.js';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -14,7 +14,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Catalog />} />
-          <Route path="/order" element={<Order />} />
+          <Route path="/order" element={<OrderPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
