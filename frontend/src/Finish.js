@@ -2,7 +2,7 @@
 
 function Finish() {
     return (
-        <p>asdf</p>
+        <p>Finish</p>
     )
 }
 

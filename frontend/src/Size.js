@@ -1,7 +1,7 @@
 
 function Size() {
     return (
-        <p>asdf</p>
+        <p>size</p>
     )
 }
 

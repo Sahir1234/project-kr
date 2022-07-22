@@ -2,7 +2,7 @@
 
 function Color() {
     return (
-        <p>asdf</p>
+        <p>color</p>
     )
 }
 

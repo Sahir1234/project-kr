@@ -2,7 +2,7 @@
 
 function Footer() {
     return (
-        <p>asdf</p>
+        <p>footer</p>
     )
 }
 
