@@ -4,14 +4,24 @@ Website for Mom's Business
 
 ### To Dos:
 
-* consider using blueprints with flask
-* admin page with password for us to confirm orders and view messages
-* need business email
+* need one business email
+* need business venmo as well
+
+* Page designs:
+    * CUSTOMER:
+        * header with browsing page and order placement page
+        * order placement is just a form
+        * browsing page is three sections with size color and finish describing options
+        * include contact us footer with email for customer issues, feedback, anything
+    * ADMIN:
+        * seperate page to view orders and statuses and update them
+        * for now keep in same site as customer but may move to new site
+
 
 ### Notes:
 
 * remember that I needed to add 2-step verification and app password to notfiication gmail acccount to work
-* port number also needs to stay fixed for ssl
+
 
 ### To Run In Dev:
 
@@ -23,4 +33,5 @@ Website for Mom's Business
 
 #### Frontend:
 
-* 
+* Run the react server: `npm start`
+* Site now running on port 3000 on localhost
