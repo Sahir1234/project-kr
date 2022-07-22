@@ -2,7 +2,7 @@ import Size from './Size.js';
 import Color from './Color.js';
 import Finish from './Finish.js';
 
-function Home() {
+function Catalog() {
     return (
         <div>
             <Size />
@@ -12,4 +12,4 @@ function Home() {
     );
   }
   
-  export default Home;
+  export default Catalog;

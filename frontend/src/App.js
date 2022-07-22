@@ -1,9 +1,9 @@
 
 import './App.css';
-import Header from './Header.js';
-import Home from './Home.js';
-import Order from './Order.js';
-import Footer from './Footer.js';
+import Header from './common/Header.js';
+import Catalog from './catalog/Catalog';
+import Order from './ordering/Order.js';
+import Footer from './common/Footer.js';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Catalog />} />
           <Route path="/order" element={<Order />} />
         </Routes>
         <Footer />
