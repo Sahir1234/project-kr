@@ -1,4 +1,5 @@
 
+import email
 from flask import Flask, jsonify, request
 from email_module.email_client import EmailClient
 from records_module.record_client import RecordClient
@@ -12,55 +13,78 @@ record_client = RecordClient()
 order_manager = OrderManager(record_client.read_records())
 
 
+
 ################################################################################
-
-
 #
 # THIS ROUTE THROWS AN ERROR IF THE ID CANNOT BE GENERATED, MUST CATCH
 #
 @app.route('/api/customer/order', methods = ['POST'])
 def place_order():
-    order = Order(request.json)
-    id = order_manager.create_new_order(order, True)
-    record_client.update_records(order_manager)
-    email_client.send_order_confirmation(id, order)
-    return jsonify( { "ORDER_ID" : id } )
+    try:
+        order = Order(request.json)
+        id = order_manager.create_new_order(order, True)
+        record_client.update_records(order_manager)
+        email_client.send_order_confirmation(id, order)
+        return jsonify( { "message" : "success" , "id" : id } )
+    except RuntimeError as e:
+        message = str(e)
+        return jsonify( { "message" : message })
+
 
 ################################################################################
 
+
 @app.route('/api/admin/cancel', methods = ['POST'])
 def cancel_order():
+    try:
+        id = request.json["ORDER_ID"]
+        order = order_manager.cancel_order(id)
+        record_client.update_records(order_manager)
+        email_client.send_cancellation_confirmation(id, order)
+        return jsonify( { "message" : "success" , "id" : id } )
+    except RuntimeError as e:
+        message = str(e)
+        return jsonify( { "message" : message })
 
-    order_id = request.json["ORDER_ID"]
-
-    # cancel order
-    # remove it from active orders
-    # email cancellation confirmation
-    # if paid, issue refund
-    return 'cacncel ORDER'
 
 @app.route('/api/admin/paid', methods = ['POST'])
 def mark_order_paid():
-    order_id = request.json["ORDER_ID"]
-    # order has been paid for
-    # wait for completion or if complete schedule pick up time
-    return 'cacncel ORDER'
+    try:
+        id = request.json["ORDER_ID"]
+        order = order_manager.mark_order_paid(id)
+        record_client.update_records(order_manager)
+        email_client.send_payment_confirmation(id, order)
+        return jsonify( { "message" : "success" , "id" : id } )
+    except RuntimeError as e:
+        message = str(e)
+        return jsonify( { "message" : message })
+
 
 @app.route('/api/admin/completed', methods = ['POST'])
 def mark_order_completed():
-    order_id = request.json["ORDER_ID"]
-    # order has been produced 
-    # notify customer
-    # schedule pick up time
-    return 'cacncel ORDER'
+    try:
+        id = request.json["ORDER_ID"]
+        order = order_manager.mark_order_produced(id)
+        record_client.update_records(order_manager)
+        email_client.send_production_completion_confirmation(id, order)
+        return jsonify( { "message" : "success" , "id" : id } )
+    except RuntimeError as e:
+        message = str(e)
+        return jsonify( { "message" : message })
 
 
 @app.route('/api/admin/close', methods = ['POST'])
 def mark_order_closed():
-    order_id = request.json["ORDER_ID"]
-    # when the order has been completed, paid for, and given to customer
-    # everything i done so no need to see on website anymore
-    return 'ccel ORDER'
+    try:
+        id = request.json["ORDER_ID"]
+        order = order_manager.close_order(id)
+        record_client.update_records(order_manager)
+        email_client.send_end_of_order_message(id, order)
+        return jsonify( { "message" : "success" , "id" : id } )
+    except RuntimeError as e:
+        message = str(e)
+        return jsonify( { "message" : message })
+
 
 ################################################################################
 

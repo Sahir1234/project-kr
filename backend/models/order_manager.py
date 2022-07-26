@@ -30,6 +30,33 @@ class OrderManager():
         self.orders["ACTIVE"][id] = order
         return id
         
+    
+    def cancel_order(self, id):
+        # cancel order
+    # remove it from active orders
+    # email cancellation confirmation
+    # return the order object
+        pass
+
+    def mark_order_paid(self, id):
+        # order has been paid for
+    # wait for completion or if complete schedule pick up time
+    # return the order object
+        pass
+
+    def mark_order_produced(self, id):
+        # order has been produced 
+        # notify customer
+        # schedule pick up time
+        # return the order object
+        pass
+
+    def close_order(self, id):
+        # when the order has been completed, paid for, and given to customer
+        # everything i done so no need to see on website anymore
+        # return the order object
+        pass
+
 
     def convert_to_json(self):
         records = {}

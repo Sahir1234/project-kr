@@ -21,6 +21,7 @@ class EmailClient():
         self.body_template = "<html><head></head><body> {0} </body></html>"
 
     
+    
     def send_order_confirmation(self, id, order):
         pass
 
@@ -33,6 +34,10 @@ class EmailClient():
 
     def send_production_completion_confirmation(self, id, order):
         pass
+
+    def send_end_of_order_message(self, id, order):
+        pass
+
 
 
     def __send_email(self, recipient, subject, content):

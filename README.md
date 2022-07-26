@@ -4,6 +4,7 @@ Website for Mom's Business
 
 ### To Dos:
 
+* need to finish email lient and order manager in backend
 * need one business email
 * need business venmo as well
 
