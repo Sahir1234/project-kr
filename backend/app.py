@@ -24,7 +24,8 @@ def place_order():
         order = Order(request.json)
         id = order_manager.create_new_order(order, True)
         record_client.update_records(order_manager)
-        email_client.send_order_confirmation(id, order)
+        email_client.send_customer_order_confirmation(id, order)
+        email_client.send_admin_order_info(id, order)
         return jsonify( { "message" : "success" , "id" : id } )
     except RuntimeError as e:
         message = str(e)
@@ -40,7 +41,7 @@ def cancel_order():
         id = request.json["ORDER_ID"]
         order = order_manager.cancel_order(id)
         record_client.update_records(order_manager)
-        email_client.send_cancellation_confirmation(id, order)
+        email_client.send_customer_cancellation_confirmation(id, order)
         return jsonify( { "message" : "success" , "id" : id } )
     except RuntimeError as e:
         message = str(e)
@@ -53,7 +54,7 @@ def mark_order_paid():
         id = request.json["ORDER_ID"]
         order = order_manager.mark_order_paid(id)
         record_client.update_records(order_manager)
-        email_client.send_payment_confirmation(id, order)
+        email_client.send_customer_payment_confirmation(id, order)
         return jsonify( { "message" : "success" , "id" : id } )
     except RuntimeError as e:
         message = str(e)
@@ -66,7 +67,7 @@ def mark_order_completed():
         id = request.json["ORDER_ID"]
         order = order_manager.mark_order_produced(id)
         record_client.update_records(order_manager)
-        email_client.send_production_completion_confirmation(id, order)
+        email_client.send_customer_production_completion_confirmation(id, order)
         return jsonify( { "message" : "success" , "id" : id } )
     except RuntimeError as e:
         message = str(e)
@@ -77,9 +78,8 @@ def mark_order_completed():
 def mark_order_closed():
     try:
         id = request.json["ORDER_ID"]
-        order = order_manager.close_order(id)
+        order_manager.close_order(id)
         record_client.update_records(order_manager)
-        email_client.send_end_of_order_message(id, order)
         return jsonify( { "message" : "success" , "id" : id } )
     except RuntimeError as e:
         message = str(e)

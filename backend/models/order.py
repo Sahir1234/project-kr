@@ -18,6 +18,7 @@ class Order():
         self.first_name = data["FIRST_NAME"]
         self.last_name = data["LAST_NAME"]
         self.email = data["EMAIL"]
+        self.phone = data["PHONE"]
         self.products = [Product(product) for product in data["ORDER"]]
 
         if (new):
@@ -39,6 +40,7 @@ class Order():
         order_info["FIRST_NAME"] = self.first_name
         order_info["LAST_NAME"] = self.last_name
         order_info["EMAIL"] = self.email
+        order_info["PHONE"] = self.phone
         order_info["ORDER"] = [product.convert_to_json() for product in self.products]
         order_info["PRODUCTION_STATUS"] = self.production_status
         order_info["PAYMENT_STATUS"] = self.payment_status

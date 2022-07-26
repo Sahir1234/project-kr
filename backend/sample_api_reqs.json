@@ -4,6 +4,7 @@
         "FIRST_NAME": "John",
         "LAST_NAME": "Smith",
         "EMAIL": "asdf@asdf@gmail.com",
+        "PHONE": "1234567890",
         "ORDER": [
             {
                 "SIZE": "SMALL",
