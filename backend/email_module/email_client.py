@@ -15,12 +15,14 @@ class EmailClient():
     PRODUCTION_SUBJECT = "Your Order Is Ready! - Ushi's Creations!"
 
     ADMIN_INFO_TEMPLATE = "<p>Hello, </p><br><p>Ushi's Creation has received a \
-        new order from {0} {1}. </p>"
+        new order from {0} {1}.</p><br><p>Order Number: {2}</p><br><p>Email: \
+        {3}</p><br><p>Phone: {4}</p><br><p>Order Details: </p><br><p> {5} </p>"
     CONFIRMATION_TEMPLATE = "<p>Hello {0},</p><br><p>Thank you for placing an \
-            order with Ushi's Creations! Your order confirmation number is \
-            {1}. Please keep track of this number and include it in all \
-            your messages to us so we can </p>"
-    CANCELLATION_PRE_PAY_TEMPLATE = "<p>Hello {0},</p><br><p></p>"
+        order with Ushi's Creations! Your order confirmation number is \
+        {1}. Please keep track of this number and include it in all \
+        your messages to us so we can manage your order.</p>"
+    CANCELLATION_PRE_PAY_TEMPLATE = "<p>Hello {0},</p><br><p>Your order #{1} \
+        has been cancelled. No further action is required at this time.</p>"
     CANCELLATION_POST_PAY_TEMPLATE = "<p>"
     PAYMENT_PRE_PROD_TEMPLATE = ""
     PAYMENT_POST_PROD_TEMPLATE = ""
@@ -40,6 +42,10 @@ class EmailClient():
         self.mail_server.starttls()
         self.mail_server.login(self.email , credentials["password"])
     
+
+    def order_to_html(self, order):
+        pass
+
 
     def send_customer_order_confirmation(self, id, order):
         recipient = order.email
