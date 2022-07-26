@@ -1,0 +1,33 @@
+
+{
+    "/api/customer/order": {
+        "FIRST_NAME": "John",
+        "LAST_NAME": "Smith",
+        "EMAIL": "asdf@asdf@gmail.com",
+        "ORDER": [
+            {
+                "SIZE": "SMALL",
+                "COLOR": "RED",
+                "FINISH": "GOLD"
+            }
+        ]
+
+    },
+
+    "/api/admin/cancel": {
+        "ORDER_ID": 1
+    },
+
+    "/api/admin/paid": {
+        "ORDER_ID": 1
+    },
+
+    "/api/admin/completed": {
+        "ORDER_ID": 1
+    },
+
+    "/api/admin/closed": {
+        "ORDER_ID": 1
+    }
+
+}

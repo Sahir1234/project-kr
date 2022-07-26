@@ -8,8 +8,9 @@ class EmailClient():
 
     def __init__(self):
 
-        file = open("./email_module/email_credentials.json")
+        file = open("./email_module/email_credentials.json", "r")
         credentials = json.load(file)
+        file.close()
 
         self.email = credentials["email"]
         self.mail_server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -20,7 +21,18 @@ class EmailClient():
         self.body_template = "<html><head></head><body> {0} </body></html>"
 
     
-    #def customer_contact(self, )
+    def send_order_confirmation(self, id, order):
+        pass
+
+
+    def send_cancellation_confirmation(self, id, order):
+        pass
+
+    def send_payment_confirmation(self, id, order):
+        pass
+
+    def send_production_completion_confirmation(self, id, order):
+        pass
 
 
     def __send_email(self, recipient, subject, content):
