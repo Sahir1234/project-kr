@@ -17,7 +17,14 @@ class Footer extends React.Component {
                     </Col>
                     <Col></Col>
                 </Row>
+                <div className="footer-bottom">
+                    <p className="text-xs-center">
+                        Put Copyright and trademark stuff here
+                    </p>
+                </div>
+                
             </Container>
+            
         );
     }
     

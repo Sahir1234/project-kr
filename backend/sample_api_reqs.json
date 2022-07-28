@@ -1,8 +1,7 @@
 
 {
     "/api/customer/order": {
-        "FIRST_NAME": "John",
-        "LAST_NAME": "Smith",
+        "NAME": "John Smith",
         "EMAIL": "asdf@asdf@gmail.com",
         "PHONE": "1234567890",
         "ORDER": [

@@ -1,26 +1,13 @@
 
 from enum import Enum
 
-class Size(Enum):
-    SMALL = "SMALL"
-    LARGE = "LARGE"
-    TRAY = "TRAY"
-
-class Color(Enum):
-    RED = "RED"
-    BLUE = "BLUE"
-
-class Finish(Enum):
-    GOLD = "GOLD"
-    SILVER = "SILVER"
-
 
 class Product():
 
     def __init__(self, data):
-        self.size = Size(data["SIZE"])
-        self.color = Color(data["COLOR"])
-        self.finish = Finish(data["FINISH"])
+        self.size = data["SIZE"]
+        self.color = data["COLOR"]
+        self.finish = data["FINISH"]
 
     def convert_to_json(self):
         product = {}

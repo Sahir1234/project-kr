@@ -1,8 +1,7 @@
 {
     "ACTIVE": {
         "ID_NUMBER": {
-            "FIRST_NAME": "John",
-            "LAST_NAME": "Doe",
+            "NAME": "John Doe",
             "EMAIL": "asdf@asdf.com",
             "PHONE": "1234567890",
             "ORDER": [

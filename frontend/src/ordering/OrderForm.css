@@ -1,0 +1,17 @@
+
+#submissionBox {
+    border-radius: 15px;
+    background-color: lightgreen;
+    padding: 2em;
+}
+
+#submitButton {
+    padding: 2em;
+    border-radius: 20px;
+    background-color: aqua;
+    margin: auto;
+}
+
+button:hover {
+    opacity: 0.7;
+}

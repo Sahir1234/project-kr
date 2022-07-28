@@ -8,7 +8,9 @@ class OrderPage extends React.Component {
     render() {
         return (
             <Container>
+                <br></br>
                 <OrderForm />
+                <br></br>
             </Container>
         );
     }

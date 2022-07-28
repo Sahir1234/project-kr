@@ -1,0 +1,10 @@
+
+#customerInfoBox {
+    border-radius: 15px;
+    background-color: lightgray;
+    padding: 2em;
+}
+
+input {
+    border-radius: 10px;
+}
