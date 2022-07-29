@@ -1,6 +1,7 @@
 
 import React from "react";
-import { Container, Row, Col, Alert } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import swal from 'sweetalert';
 import CustomerInfo from './CustomerInfo.js';
 import ProductOrder from './ProductOrder.js';
 import './OrderForm.css';
@@ -10,11 +11,10 @@ class OrderForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      alertShow: true,
-      alertMessage: 'asffdsas',
       name: '', 
       email: '', 
-      phone: ''
+      phone: '',
+      order: {}
     };
 
     this.updateCustomerInfo= this.updateCustomerInfo.bind(this);
@@ -25,7 +25,7 @@ class OrderForm extends React.Component {
   }
 
   updateCustomerInfo(state) {
-    this.setState( {name: state.name, email: state.email, phone: state.phone} );
+    this.setState( {name: state.name, email: state.email, phone: state.phone, order: this.state.order} );
   }
 
   validateEmail(email) {
@@ -33,18 +33,18 @@ class OrderForm extends React.Component {
   }
 
   validatePhone(phone) {
-    return true;
+    return phone.match('[0-9]{10}');
   }
 
   validateState() {
     if (this.state.name === "") {
-      alert("Please enter a name for the order!");
+      swal("Oops!","Please enter a name for the order!", "error");
       return false;
-    } else if (this.state.email === "" || !this.validateEmail(this.state.email)) {
-      alert("Plase enter a valid email for the order!");
+    } else if (!this.validateEmail(this.state.email)) {
+      swal("Oops!", "Please enter a valid email for the order!", "error");
       return false;
-    } else if (this.state.phone === "" || !this.validatePhone(this.state.phone)) {
-      alert("Pleae enter a valid phone number for the order!");
+    } else if (!this.validatePhone(this.state.phone)) {
+      swal("Oops!", "Please enter a valid phone number for the order!", "error");
       return false;
     }
     return true;
@@ -52,7 +52,10 @@ class OrderForm extends React.Component {
 
   placeOrder() {
     if (this.validateState()) {
-      alert ("ORDER SUCCESSFULLY PLACED");
+
+      // attempt to place order here 
+
+      swal("Success!", "ORDER SUCCESSFULLY PLACED", "success");
     }
   }
 

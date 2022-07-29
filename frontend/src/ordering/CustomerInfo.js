@@ -15,17 +15,17 @@ class CustomerInfo extends React.Component {
       }
     
       handleNameChange(event) {
-        this.setState( {name: event.target.value, email: this.state.email, phone: this.state.phone} );
+        this.state.name = event.target.value;
         this.props.updateInfo(this.state);
       }
     
       handleEmailChange(event) {
-        this.setState( {name: this.state.name, email: event.target.value, phone: this.state.phone} );
+        this.state.email = event.target.value;
         this.props.updateInfo(this.state);
       }
 
       handlePhoneChange(event) {
-        this.setState( {name: this.state.name, email: this.state.email, phone: event.target.value} );
+        this.state.phone = event.target.value;
         this.props.updateInfo(this.state);
       }
 
@@ -37,19 +37,19 @@ class CustomerInfo extends React.Component {
                 <Col>
                     <label>
                     <div>Name: </div>
-                    <input type="text" value={this.state.name} onChange={this.handleNameChange} />
+                    <input type="text" placeholder="John Smith" value={this.state.name} onChange={this.handleNameChange} />
                     </label>
                   </Col>
                   <Col>
                     <label>
                     <div>Email: </div>
-                    <input type="text" value={this.state.email} onChange={this.handleEmailChange} />
+                    <input type="text" placeholder="john.smith@gmail.com" value={this.state.email} onChange={this.handleEmailChange} />
                     </label>
                   </Col>
                   <Col>
                     <label>
                     <div>Phone Number: </div>
-                    <input type="text" value={this.state.phone} onChange={this.handlePhoneChange} />
+                    <input type="text" placeholder="1234567890" value={this.state.phone} onChange={this.handlePhoneChange} />
                     </label>
                 </Col>
             </Row>

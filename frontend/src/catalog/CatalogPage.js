@@ -28,6 +28,8 @@ class CatalogPage extends React.Component {
                     <Finish />
                 </Row>
                 <br></br>
+                <br></br>
+                <br></br>
             </Container>
         );
     }

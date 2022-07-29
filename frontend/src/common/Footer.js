@@ -1,30 +1,29 @@
 
 import React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
+import './Footer.css';
 
 
 class Footer extends React.Component {
     render() {
         return (
-            <Container>
-                <Row>
-                    <Col></Col>
-                    <Col>
-                        Brand logo
-                    </Col>
-                    <Col>
-                        contact us
-                    </Col>
-                    <Col></Col>
-                </Row>
-                <div className="footer-bottom">
-                    <p className="text-xs-center">
-                        Put Copyright and trademark stuff here
-                    </p>
-                </div>
-                
-            </Container>
-            
+            <div className="footer bg-dark">
+                <Container>
+                    <Row>
+                        <Col>
+                            Ushi's Creations Brand Logo
+                        </Col>
+                        <Col>
+                            Contact Links
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            © 2022 Copyright: Ushi's Creations.
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
         );
     }
     
